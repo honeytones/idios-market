@@ -329,9 +329,7 @@
 
   async function fetchRecords(table) {
     const url = `${WORKER_URL}?table=${encodeURIComponent(table)}`;
-    const res = await fetch(url, {
-      {}
-    });
+    const res = await fetch(url);
     if (!res.ok) return [];
     const data = await res.json();
     return data.records || [];
