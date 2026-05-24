@@ -435,6 +435,18 @@
   function closeModal(id) {
     document.getElementById(id).classList.remove('open');
     document.body.style.overflow = '';
+    if (id === 'worker-modal') {
+      document.getElementById('worker-form').style.display = 'block';
+      document.getElementById('worker-success').style.display = 'none';
+      document.querySelector('#worker-form .btn-primary').disabled = false;
+      document.querySelector('#worker-form .btn-primary').textContent = 'Submit listing';
+    }
+    if (id === 'job-modal') {
+      document.getElementById('job-form').style.display = 'block';
+      document.getElementById('job-success').style.display = 'none';
+      document.querySelector('#job-form .btn-primary').disabled = false;
+      document.querySelector('#job-form .btn-primary').textContent = 'Post job';
+    }
   }
 
   async function submitWorker() {
@@ -446,7 +458,7 @@
     const contact = document.getElementById('w-contact').value.trim();
     const avail = document.getElementById('w-avail').value.trim();
     if (!name || !contact) { alert('Name and contact are required.'); return; }
-    const btn = event.target;
+    const btn = document.querySelector('#worker-form .btn-primary');
     btn.disabled = true;
     btn.textContent = 'Submitting...';
     const ok = await createRecord(WORKERS_TABLE, {
@@ -472,7 +484,7 @@
     const asset = document.getElementById('j-asset').value;
     const contact = document.getElementById('j-contact').value.trim();
     if (!title || !contact) { alert('Title and contact are required.'); return; }
-    const btn = event.target;
+    const btn = document.querySelector('#job-form .btn-primary');
     btn.disabled = true;
     btn.textContent = 'Posting...';
     const ok = await createRecord(JOBS_TABLE, {
