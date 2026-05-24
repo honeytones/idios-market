@@ -329,9 +329,7 @@
 
   async function fetchRecords(table) {
     const url = `${WORKER_URL}?table=${encodeURIComponent(table)}`;
-    const res = await fetch(url, {
-      {}
-    });
+    const res = await fetch(url);
     if (!res.ok) return [];
     const data = await res.json();
     return data.records || [];
@@ -353,7 +351,7 @@
   function renderWorkers(records) {
     const grid = document.getElementById('workers-grid');
     if (!records.length) {
-      grid.innerHTML = '<div class="empty"><p>No workers listed yet.</p><button class="btn btn-primary" onclick="openModal('worker-modal')">Be the first to list yourself</button></div>';
+      grid.innerHTML = "<div class='empty'><p>No workers listed yet.</p><button class='btn btn-primary' onclick='openModal(&quot;worker-modal&quot;)'>Be the first to list yourself</button></div>";
       return;
     }
     grid.innerHTML = records.map(r => {
@@ -377,7 +375,7 @@
   function renderJobs(records) {
     const grid = document.getElementById('jobs-grid');
     if (!records.length) {
-      grid.innerHTML = '<div class="empty"><p>No jobs posted yet.</p><button class="btn btn-primary" onclick="openModal('job-modal')">Post the first job</button></div>';
+      grid.innerHTML = "<div class='empty'><p>No jobs posted yet.</p><button class='btn btn-primary' onclick='openModal(&quot;job-modal&quot;)'>Post the first job</button></div>";
       return;
     }
     grid.innerHTML = records.map(r => {
