@@ -320,6 +320,7 @@
 
 <script>
   const WORKER_URL = 'https://idios-market-worker.idios-market.workers.dev';
+  
   const WORKERS_TABLE = 'Workers';
   const JOBS_TABLE = 'Jobs';
 
@@ -328,7 +329,9 @@
 
   async function fetchRecords(table) {
     const url = `${WORKER_URL}?table=${encodeURIComponent(table)}`;
-    const res = await fetch(url);
+    const res = await fetch(url, {
+      {}
+    });
     if (!res.ok) return [];
     const data = await res.json();
     return data.records || [];
@@ -339,6 +342,7 @@
     const res = await fetch(url, {
       method: 'POST',
       headers: {
+        
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({ fields })
