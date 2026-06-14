@@ -49,7 +49,7 @@
     .hero .badges { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 40px; }
     .badge { font-size: 0.8rem; padding: 4px 12px; border: 1px solid var(--border); color: var(--text-dim); }
     .hero .ctas { display: flex; gap: 12px; flex-wrap: wrap; }
-    .btn { display: inline-block; padding: 12px 24px; border: 1px solid var(--text); font-weight: 500; font-size: 0.95rem; transition: background .15s, color .15s; cursor: pointer; background: none; }
+    .btn { display: inline-block; padding: 12px 24px; border: 1px solid var(--text); color: var(--text); font-weight: 500; font-size: 0.95rem; transition: background .15s, color .15s; cursor: pointer; background: none; }
     .btn-primary:hover { background: var(--text); color: var(--bg); }
     .btn-secondary:hover { background: var(--text); color: var(--bg); }
     .btn:disabled { opacity: 0.5; cursor: not-allowed; }
@@ -148,8 +148,8 @@
       <strong style="color: var(--text);">New to Idios?</strong> To create or accept contracts you need the free <a href="https://honeytones.github.io/idios-site/#install">Beam Desktop wallet with the Idios dapp installed</a>. Settlement is private by default on Beam MimbleWimble.
     </div>
     <div class="ctas">
-      <button class="btn btn-secondary" onclick="openModal('worker-modal')" style="color: var(--text);">List yourself as a worker</button>
-      <button class="btn btn-secondary" onclick="openModal('job-modal')" style="color: var(--text);">Post a job</button>
+      <button class="btn btn-secondary" onclick="openModal('worker-modal')">List yourself as a worker</button>
+      <button class="btn btn-secondary" onclick="openModal('job-modal')">Post a job</button>
     </div>
   </div>
 
