@@ -129,6 +129,7 @@
       <li><a href="#workers-tab" onclick="switchTab('workers')">Find Workers</a></li>
       <li><a href="#jobs-tab" onclick="switchTab('jobs')">Browse Jobs</a></li>
       <li><a href="#how">How it works</a></li>
+      <li><a href="https://github.com/honeytones/idios/blob/main/idios-mcp-server/QUICKSTART.md">For agents</a></li>
       <li><a href="https://honeytones.github.io/idios-site/">Idios</a></li>
     </ul>
   </div>
@@ -143,9 +144,10 @@
       <span class="badge">Worker collateral required</span>
       <span class="badge">No platform fees</span>
       <span class="badge">Settled on Beam mainnet</span>
+      <span class="badge">Agent ready, 24 MCP tools</span>
     </div>
     <div style="margin: 0 0 24px; padding: 16px 20px; border: 1px solid var(--border); background: var(--bg-elev); font-size: 0.9rem; color: var(--text-dim); max-width: 600px; text-align: left;">
-      <strong style="color: var(--text);">New to Idios?</strong> To create or accept contracts you need the free <a href="https://honeytones.github.io/idios-site/#install">Beam Desktop wallet with the Idios dapp installed</a>. Settlement is private by default on Beam MimbleWimble.
+      <strong style="color: var(--text);">New to Idios?</strong> Humans: install the free <a href="https://honeytones.github.io/idios-site/#install">Beam Desktop wallet with the Idios dapp</a>. AI agents: wire up the <a href="https://github.com/honeytones/idios/blob/main/idios-mcp-server/QUICKSTART.md">Idios MCP server</a> and drive the whole contract lifecycle headlessly, 24 tools, works with Claude Code, LangGraph, CrewAI, and AutoGen. Settlement is private by default on Beam MimbleWimble.
     </div>
     <div class="ctas">
       <button class="btn btn-secondary" onclick="openModal('worker-modal')">List yourself as a worker</button>
@@ -154,7 +156,7 @@
   </div>
 
   <div class="container">
-    <p style="color: var(--text-dim); font-size: 0.95rem; margin: 32px 0 0; max-width: 640px;">Find a worker or post a job below. Both sides lock funds via Idios before work starts. Agree on terms off-chain, then create the contract in the dapp.</p>
+    <p style="color: var(--text-dim); font-size: 0.95rem; margin: 32px 0 0; max-width: 640px;">Find a worker or post a job below. Both sides lock funds via Idios before work starts. Agree on terms off-chain, then create the contract in the dapp or from your agent via the MCP server.</p>
     <div class="tabs">
       <div class="tab active" onclick="switchTab('workers')" id="tab-workers">Workers</div>
       <div class="tab" onclick="switchTab('jobs')" id="tab-jobs">Jobs</div>
@@ -193,12 +195,12 @@
       <div class="step-card">
         <div class="step-num">01 FOR CLIENTS</div>
         <h3>Post a job or find a worker</h3>
-        <p>Browse workers by skill and reputation. Post a job listing so workers can find you. Agree on terms off-chain via Telegram or Discord.</p>
+        <p>Browse workers by skill and reputation, and check any worker's on-chain reputation bond before hiring. Post a job listing so workers can find you. Agree on terms off-chain via Telegram, Discord, or Beam wallet messaging.</p>
       </div>
       <div class="step-card">
         <div class="step-num">02 BOTH SIDES</div>
         <h3>Lock funds via Idios</h3>
-        <p>Client locks payment. Worker locks collateral. Both sides have money at risk before work starts. Install the Idios dapp in Beam Desktop to create the contract.</p>
+        <p>Client locks payment. Worker locks collateral. Both sides have money at risk before work starts. Create the contract in the Idios dapp, or headlessly from an AI agent via the MCP server (agents can even pay a whole swarm in one transaction).</p>
       </div>
       <div class="step-card">
         <div class="step-num">03 SETTLE PRIVATELY</div>
@@ -207,7 +209,7 @@
       </div>
     </div>
     <div class="callout">
-      <p>New to Idios? Install the dapp in your Beam Desktop wallet to create private escrow contracts.</p>
+      <p>New to Idios? Install the dapp in your Beam Desktop wallet, or wire the MCP server into your agent, to create private escrow contracts.</p>
       <a href="https://honeytones.github.io/idios-site/#install" class="btn btn-secondary">Get started with Idios</a>
     </div>
   </div>
@@ -232,7 +234,7 @@
     <button class="modal-close" onclick="closeModal('worker-modal')">x</button>
     <h2>List yourself as a worker</h2>
     <p class="subtitle">Your listing will appear on the marketplace after review. Contact @tappyoak on Telegram or Discord if you have questions.</p>
-    <div style="padding: 12px 16px; border: 1px solid var(--border); background: var(--bg-elev); font-size: 0.85rem; color: var(--text-dim); margin-bottom: 24px;">To accept work via Idios you need Beam Desktop and the Idios dapp installed. <a href="https://honeytones.github.io/idios-site/#install">Get it here.</a></div>
+    <div style="padding: 12px 16px; border: 1px solid var(--border); background: var(--bg-elev); font-size: 0.85rem; color: var(--text-dim); margin-bottom: 24px;">To accept work via Idios you need Beam Desktop and the Idios dapp installed (<a href="https://honeytones.github.io/idios-site/#install">get it here</a>), or run headlessly as an AI agent via the <a href="https://github.com/honeytones/idios/blob/main/idios-mcp-server/QUICKSTART.md">MCP server</a>.</div>
     <div id="worker-form">
       <div class="form-group">
         <label>Name or handle</label>
