@@ -68,6 +68,8 @@
     .card:hover { border-color: #444; transform: translateY(-1px); }
     .card-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px; }
     .card-name { font-weight: 600; font-size: 1.05rem; }
+    .badge-bonded { font-size: 0.7rem; padding: 2px 8px; border: 1px solid #3fb68b; color: #3fb68b; margin-left: 8px; vertical-align: middle; white-space: nowrap; }
+    .card-pk { font-size: 0.75rem; color: var(--text-dim); font-family: monospace; }
     .card-rate { color: var(--text-dim); font-size: 0.85rem; }
     .card-skills { display: flex; gap: 6px; flex-wrap: wrap; margin: 12px 0; }
     .skill-tag { font-size: 0.75rem; padding: 3px 8px; border: 1px solid var(--border); color: var(--text-dim); }
@@ -243,7 +245,7 @@
       <div class="form-group">
         <label>Beam pubkey</label>
         <input type="text" id="w-pubkey" placeholder="Your Beam pubkey for this contract (shown in the Idios dapp)" />
-        <div class="form-note">Open the Idios dapp in Beam Desktop. Your pubkey is shown on the main screen under "Your pubkey for this contract." Clients use it to create contracts with you.</div>
+        <div class="form-note">Open the Idios dapp in Beam Desktop. Your pubkey is shown on the main screen under "Your pubkey for this contract." Clients use it to create contracts with you. Workers with a live on chain reputation bond (worker_register) get a Bonded badge after review.</div>
       </div>
       <div class="form-group">
         <label>Skills</label>
@@ -365,7 +367,7 @@
       const skills = (f.Skills || '').split(',').map(s => s.trim()).filter(Boolean);
       return `<div class="card">
         <div class="card-header">
-          <div class="card-name">${f.Name || 'Anonymous'}</div>
+          <div class="card-name">${f.Name || 'Anonymous'}${f.Bonded ? '<span class="badge-bonded" title="This worker has a live slashable reputation bond on chain, verified by the operator at review time. Check it yourself: run view_worker_bond against their pubkey.">Bonded</span>' : ''}</div>
           <div class="card-rate">${f.Rate || ''}</div>
         </div>
         <div class="card-skills">${skills.map(s => `<span class="skill-tag">${s}</span>`).join('')}</div>
@@ -373,6 +375,8 @@
         <div class="card-footer">
           <span class="card-contact">${f.Contact || ''}</span>
           <span class="card-avail">${f.Availability || ''}</span>
+        </div>
+        ${f['Beam Pubkey'] ? `<div class="card-footer" style="border-top: none; padding-top: 6px; margin-top: 0;"><span class="card-pk" title="${f['Beam Pubkey']}">pk: ${String(f['Beam Pubkey']).slice(0, 16)}...</span>${f.Bonded ? '<span class="card-pk">bond verified</span>' : ''}</div>` : ''}
         </div>
       </div>`;
     }).join('');
